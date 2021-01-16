@@ -13,3 +13,7 @@
  *= require_tree .
  *= require_self
  */
+.format{
+  width: 100%;
+  display: flex;
+}
