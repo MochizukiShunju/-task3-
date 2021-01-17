@@ -24,16 +24,17 @@
     <main class="format">
       <div>
         <h1>User info</h1>
+        <%= attachment_image_tag @user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg"%><br>
         <h4>name</h4><%= @user.name %>
         <h4>introduction</h4><%= @user.introduction %><br>
         <%= link_to "Edit", edit_user_path(@user)%>
 
         <h1>New Book</h1>
-        <%= form_with model: @user, local:true do |f| %>
+        <%= form_with model: @book, local:true do |f| %>
           <h4>Title</h4>
           <%= f.text_field :title %>
           <h4>Opinion</h4>
-          <%= f.text_area :opinion %>
+          <%= f.text_area :body %>
           <%= f.submit 'Create Book' %>
         <% end %>
       </div>
@@ -43,17 +44,19 @@
         <table>
 
           <tr>
+            <th></th>
             <th>Title</th>
             <th>Opinion</th>
           </tr>
 
-          <tr>
-            <td><%= @user.title%></td>
-          </tr>
+          <% @books.each do |book| %>
+            <tr>
+              <td><%= attachment_image_tag @user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg"%></td>
+              <td><%= book.title %></td>
+              <td><%= book.body %></td>
+            </tr>
+          <% end %>
 
-          <tr>
-            <td><%= @user.opinion%></td>
-          </tr>
         </table>
       </div>
 
