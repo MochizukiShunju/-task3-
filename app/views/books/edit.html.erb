@@ -1,12 +1,23 @@
-<h1>Editing Book</h1>
+<heder>
 
-<%= form_with model:@book, local: true do |f| %>
-  <h4>Title</h4>
-  <%= f.text_field :title %>
+</heder>
 
-  <h4>Opinion</h4>
-  <%= f.text_area :body %><br>
-  <%= f.submit 'Update book' %><br>
+<body>
+  <h1>Editing Book</h1>
 
-  <%= link_to "Show", book_path(@book.id) %>|<%= link_to "Back",  books_path %>
-<% end %>
+  <%= form_with model:@book, local: true do |f| %>
+    <h4>Title</h4>
+    <%= f.text_field :title %>
+
+    <h4>Opinion</h4>
+    <%= f.text_area :body %><br>
+    <%= f.submit 'Update book' %><br>
+
+    <%= link_to "Show", book_path(@book.id) %>|<%= link_to "Back",  books_path %>
+  <% end %>
+</body>
+
+<footer>
+  <%= render 'layouts/footer' %>
+</footer>
+

@@ -5,40 +5,12 @@
   </head>
 
   <heder>
-   <h4>Bookers</h4>
-   <% if user_signed_in? %>
-      <li>
-        <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-      </li>
-    <% else %>
-      <li>
-        <%= link_to "新規登録", new_user_registration_path %>
-      </li>
-      <li>
-        <%= link_to "ログイン", new_user_session_path %>
-      </li>
-    <% end %>
+
   </heder>
 
   <body>
     <main class="format">
-      <div>
-        <h1>User info</h1>
-        <%= attachment_image_tag @user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg"%><br>
-        <h4>name</h4><%= @user.name %>
-        <h4>introduction</h4><%= @user.introduction %><br>
-        <%= link_to "Edit", edit_user_path(@user)%>
-
-        <h1>New Book</h1>
-        <%= form_with model: @book, local:true do |f| %>
-          <h4>Title</h4>
-          <%= f.text_field :title %>
-          <h4>Opinion</h4>
-          <%= f.text_area :body %>
-          <%= f.submit 'Create Book' %>
-        <% end %>
-      </div>
-
+      <%= render 'layouts/body' %>
       <div>
         <h1>Books</h1>
         <table>
@@ -51,8 +23,8 @@
 
           <% @books.each do |book| %>
             <tr>
-              <td><%= attachment_image_tag @user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg"%></td>
-              <td><%= book.title %></td>
+              <td><%= attachment_image_tag @user, :profile_image, format: 'jpeg', fallback: "no_image.jpg", size: "60x60" %><br></td>
+              <td><a href="<%= book_path(book.id) %>"><%= book.title %></a></td>
               <td><%= book.body %></td>
             </tr>
           <% end %>
@@ -63,4 +35,8 @@
     </main>
 
   </body>
+
+  <footer>
+   <%= render 'layouts/footer' %>
+  </footer>
 </html>
