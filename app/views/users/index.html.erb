@@ -1,21 +1,25 @@
 <html lang="ja">
   <head>
     <mate charset="UTF-8" />
-    <link rel="stylesheet" href="application.css" />
   </head>
 
-  <heder>
-
-  </heder>
-
-  <body>
-    <main class="format">
-
-     <%= render 'layouts/body' %>
-
+  <body class="container">
+    <div class="row">
       <div>
+        <% if flash[:notice] %>
+          <div class="flash">
+            <%= flash[:notice] %>
+          </div>
+         <% end %>
+      </div>
+
+      <div class="col-sm-3">
+        <%= render 'layouts/body' %>
+      </div>
+
+      <div class="col-sm-9">
         <h1>Users</h1>
-        <table>
+        <table class="table">
 
           <tr>
             <th>
@@ -25,20 +29,21 @@
 
           <% @users.each do |user| %>
             <tr>
-              <td><%= attachment_image_tag @user, :profile_image, format: 'jpeg', fallback: "no_image.jpg", size: "60x60" %><br></td>
+              <td><%= attachment_image_tag user, :profile_image, format: 'jpeg', fallback: "no_image.jpg", size: "60x60" %><br></td>
               <td><%= user.name %></td>
               <td><%= link_to "Show", user_path(user.id) %></td>
             </tr>
           <% end %>
-
         </table>
       </div>
-
-    </main>
-
+    </div>
   </body>
 
-  <footer>
-   <%= render 'layouts/footer' %>
+  <footer class="container">
+    <div class="row">
+      <div class="mx-auto">
+        <p>CopyRight Infratop.inc</p>
+      </div>
+    </div>
   </footer>
 </html>

@@ -1,25 +1,30 @@
-<heder>
 
-</heder>
+<body class="container">
+  <div class="row">
+    <div class="mx-auto" style="width: 300px;">
+      <h2>User info</h2>
+      <%= form_with model:@user, local:true do |f| %>
+        <h4>Name</h4>
+        <%= f.text_field :name %><br>
 
-<body>
-  <h2>User info</h2>
+        <h4>Image</h4>
+        <%= f.attachment_field :profile_image %><br>
 
-  <%= form_with model:@user, local:true do |f| %>
-    <h4>Name</h4>
-    <%= f.text_field :name %><br>
+        <h4>Introduction</h4>
+        <%= f.text_area :introduction %><br>
 
-    <label for="inputImage">Image</label>
-    <%= f.attachment_field :profile_image %><br>
-
-    <h4>Introduction</h4>
-    <%= f.text_area :introduction %><br>
-
-    <%= f.submit "Uptade user" %>
-  <% end %>
+        <%= f.submit "Uptade user" %>
+      <% end %>
+    </div>
+  </div>
 </body>
 
-<footer>
-  <%= render 'layouts/footer' %>
+<footer class="container">
+    <div class="row">
+      <div class="mx-auto">
+        <p>CopyRight Infratop.inc</p>
+      </div>
+    </div>
+  </footer>
 </footer>
 

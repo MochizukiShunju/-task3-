@@ -1,19 +1,31 @@
 <html lang="ja">
   <head>
     <mate charset="UTF-8" />
-    <link rel="stylesheet" href="application.css" />
   </head>
 
-  <heder>
-
-  </heder>
-
-  <body>
-    <main class="format">
-      <%= render 'layouts/body' %>
+  <body class="container">
+    <div class="row">
       <div>
+        <% if @book.errors.any? %>
+         <p><font color="#FF0000">errors prohibited this book from being saved</font></p>
+        <% end %>
+
+        <% if @book.errors.include?(:title) %>
+         <p><font color="#FF0000">・Title can't be blank</font></p>
+        <% end %>
+
+        <% if @book.errors.include?(:body) %>
+         <p><font color="#FF0000">・Body can't be blank</font></p>
+        <% end %>
+      </div>
+
+      <div class="col-sm-3">
+        <%= render 'layouts/body' %>
+      </div>
+
+      <div class="col-sm-9">
         <h1>Books</h1>
-        <table>
+        <table class="table">
 
           <tr>
             <th
@@ -31,13 +43,15 @@
 
         </table>
       </div>
-
-    </main>
-
+    </div>
   </body>
 
-  <footer>
-   <%= render 'layouts/footer' %>
+  <footer class="container">
+    <div class="row">
+      <div class="mx-auto">
+        <p>CopyRight Infratop.inc</p>
+      </div>
+    </div>
   </footer>
 
 </html>

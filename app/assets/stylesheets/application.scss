@@ -14,12 +14,9 @@
  *= require_self
  */
 
+ @import "bootstrap";
+
 .format{
   width: 100%;
   display: flex;
-}
-
-table{
-  width: 100%;
-  text-align: center;
 }

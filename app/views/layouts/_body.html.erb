@@ -1,6 +1,7 @@
 
     <div>
       <h1>User info</h1>
+
       <%= attachment_image_tag @user, :profile_image, format: 'jpeg', fallback: "no_image.jpg", size: "60x60" %><br>
       <h4>name</h4><%= @user.name %>
       <h4>introduction</h4><%= @user.introduction %><br>

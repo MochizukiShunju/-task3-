@@ -3,23 +3,24 @@
 
   </heder>
 
-  <body>
-    <h1>welcome to Bookers!!</h1>
-    <p>in Bookers,</p>
-    <p>you can share and exchange your opinions , inpressions , and emotions</p>
-    <p>about various books!</p>
-
-    <li>
-      <%= link_to "Log in", new_user_session_path %>
-    </li>
-
-    <li>
-      <%= link_to "Sigh up", new_user_registration_path %>
-    </li>
-
+  <body class="container">
+    <div class="row">
+      <div class="mx-auto">
+        <h1>welcome to Bookers!!</h1>
+        <p>in Bookers,</p>
+        <p>you can share and exchange your opinions , inpressions , and emotions</p>
+        <p>about various books!</p>
+        <%= link_to "Log in", new_user_session_path, class: "btn btn-blue" %><br>
+        <%= link_to "Sigh up", new_user_registration_path, class: "btn btn-red"%>
+      </div>
+    </div>
   </body>
 
-  <footer>
-    <p>CopyRight Infratop.inc</p>
+  <footer class="container">
+    <div class="row">
+      <div class="mx-auto">
+        <p>CopyRight Infratop.inc</p>
+      </div>
+    </div>
   </footer>
 </html>
