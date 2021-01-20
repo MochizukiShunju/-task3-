@@ -7,17 +7,15 @@
     <div class="row">
       <div>
         <% if @book.errors.any? %>
-         <p><font color="#FF0000">errors prohibited this book from being saved</font></p>
+          <div id="error_explanation">
+            <h2><%= pluralize(@book.errors.count, "error") %>errors prohibited this book from being saved</h2>
+            <ul>
+              <% @book.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+              <% end %>
+            </ul>
+          </div>
         <% end %>
-
-        <% if @book.errors.include?(:title) %>
-         <p><font color="#FF0000">・Title can't be blank</font></p>
-        <% end %>
-
-        <% if @book.errors.include?(:body) %>
-         <p><font color="#FF0000">・Body can't be blank</font></p>
-        <% end %>
-      </div>
 
       <div class="col-sm-3">
         <%= render 'layouts/body' %>

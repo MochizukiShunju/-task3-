@@ -1,11 +1,18 @@
+<html lang="ja">
+  <haed>
+    <mate charset="UTF-8" />
+    <script src="https://kit.fontawesome.com/f103d32934.js" crossorigin="anonymous"></script>
+  </haed>
 
+  <body>
     <div>
       <h1>User info</h1>
 
       <%= attachment_image_tag @user, :profile_image, format: 'jpeg', fallback: "no_image.jpg", size: "60x60" %><br>
       <h4>name</h4><%= @user.name %>
       <h4>introduction</h4><%= @user.introduction %><br>
-      <%= link_to "Edit", edit_user_path(@user)%>
+      <a href="<%= edit_user_path(@user) %>"><i class="fas fa-user-cog"></i></a>
+
 
       <h1>New Book</h1>
       <%= form_with model: @book, local:true do |f| %>
@@ -16,3 +23,5 @@
         <%= f.submit 'Create Book' %>
       <% end %>
     </div>
+  </body>
+</html>

@@ -1,17 +1,40 @@
 <html>
-  <heder>
+  <hede>
+    <mate charset="UTF-8" />
+    <script src="https://kit.fontawesome.com/f103d32934.js" crossorigin="anonymous"></script>
+  </hede>
 
-  </heder>
+  <body>
+    <div class="container">
+        <div class="mx-auto">
+          <div class="col-ms">
+            <h1>welcome to <i class="fas fa-book">Bookers!!</i></h1>
+          </div>
+          <div class="col-ms">
+          </div>
+        </div>
+    </div>
 
-  <body class="container">
-    <div class="row">
-      <div class="mx-auto">
-        <h1>welcome to Bookers!!</h1>
-        <p>in Bookers,</p>
-        <p>you can share and exchange your opinions , inpressions , and emotions</p>
-        <p>about various books!</p>
-        <%= link_to "Log in", new_user_session_path, class: "btn btn-blue" %><br>
-        <%= link_to "Sigh up", new_user_registration_path, class: "btn btn-red"%>
+    <div class="container">
+        <div class="mx-auto">
+          <div class="col-ms">
+            <p>in</p>
+          </div>
+          <div class="col-ms">
+            <i class="fas fa-book">Bookers,</i>
+          </div>
+        </div>
+    </div>
+
+
+    <div class="container">
+      <div class="row">
+        <div class="mx-auto">
+          <p>you can share and exchange your opinions , inpressions , and emotions</p>
+          <p>about various books!</p>
+          <%= link_to "Log in", new_user_session_path, class: "btn btn-blue" %><br>
+          <%= link_to "Sigh up", new_user_registration_path, class: "btn btn-red"%>
+        </div>
       </div>
     </div>
   </body>
