@@ -1,17 +1,21 @@
 <html lang="ja">
-  <haed>
-    <mate charset="UTF-8" />
-    <script src="https://kit.fontawesome.com/f103d32934.js" crossorigin="anonymous"></script>
-  </haed>
 
   <body>
     <div>
       <h1>User info</h1>
 
       <%= attachment_image_tag @user, :profile_image, format: 'jpeg', fallback: "no_image.jpg", size: "60x60" %><br>
-      <h4>name</h4><%= @user.name %>
-      <h4>introduction</h4><%= @user.introduction %><br>
-      <a href="<%= edit_user_path(@user) %>"><i class="fas fa-user-cog"></i></a>
+      <table class="table">
+        <tr>
+          <th><h4>name</h4></th>
+          <th><%= @user.name %></th>
+        </tr>
+        <tr>
+          <th><h4>introduction</h4></th>
+          <th><%= @user.introduction %></th>
+        </tr>
+      </table>
+      <a href="<%= edit_user_path(@user) %>"><i class="btn btn-outline-secondary btn-block fas fa-user-cog edit_user_14718"></i></a>
 
 
       <h1>New Book</h1>
@@ -20,7 +24,7 @@
         <%= f.text_field :title %>
         <h4>Opinion</h4>
         <%= f.text_area :body %><br>
-        <%= f.submit 'Create Book' %>
+        <%= f.submit 'Create Book', class: "btn btn-success" %>
       <% end %>
     </div>
   </body>

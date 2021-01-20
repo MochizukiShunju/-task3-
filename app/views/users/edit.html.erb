@@ -1,40 +1,53 @@
+<html lang="ja">
 
-<body class="container">
-  <div class="row">
-    <div class="mx-auto" style="width: 300px;">
-      <h2>User info</h2>
-      <% if @user.errors.any? %>
-          <div id="error_explanation">
-            <h2><%= pluralize(@user.errors.count, "error") %>errors prohibited this book from being saved</h2>
-            <ul>
-              <% @user.errors.full_messages.each do |msg| %>
-                <li><%= msg %></li>
-              <% end %>
-            </ul>
-          </div>
-      <% end %>
-      <%= form_with model:@user, local:true do |f| %>
-        <h4>Name</h4>
-        <%= f.text_field :name %><br>
 
-        <h4>Image</h4>
-        <%= f.attachment_field :profile_image %><br>
-
-        <h4>Introduction</h4>
-        <%= f.text_area :introduction %><br>
-
-        <%= f.submit "Uptade user" %>
-      <% end %>
-    </div>
-  </div>
-</body>
-
-<footer class="container">
-    <div class="row">
-      <div class="mx-auto">
-        <p>CopyRight Infratop.inc</p>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+          <h2>User info</h2>
+          <% if @user.errors.any? %>
+              <div id="error_explanation">
+                <h2><%= pluralize(@user.errors.count, "error") %>errors prohibited this book from being saved</h2>
+                <ul>
+                  <% @user.errors.full_messages.each do |msg| %>
+                    <li><%= msg %></li>
+                  <% end %>
+                </ul>
+              </div>
+          <% end %>
+          <form enctype="multipart/form-data" action="/users/14718" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="✓"><input type="hidden" name="_method" value="patch"><input type="hidden" name="authenticity_token" value="s1bBgZki3gTAeirsrVPSvs7sZGg3xjVJ++VIBS0OyvMe7HUzFR6XacwoVn1PoDRUT1h2IdNnCNasQSL2JwaWBA==">
+           <%= form_with model:@user, local:true do |f| %>
+              <div class="form-group">
+                <h4>Name</h4>
+                <%= f.text_field :name, class: "form-control name" %>
+              </div>
+              <div class="form-group">
+                <h4>Image</h4>
+                <%= f.attachment_field :profile_image, class: "form-control-file user_image" %>
+              </div>
+              <div class="form-group">
+                <h4>Introduction</h4>
+                <%= f.text_area :introduction, class: "form-control introduction" %>
+              </div>
+              <div class="form-group">
+                <h4>Introduction</h4>
+                <%= f.submit "Uptade User", class: "btn btn-secondary" %>
+              </div>
+           <% end %>
+          </form>
+        </div>
       </div>
     </div>
+  </body>
+
+  <footer class="container">
+      <div class="row">
+        <div class="mx-auto">
+          <p>CopyRight Infratop.inc</p>
+        </div>
+      </div>
+    </footer>
   </footer>
-</footer>
+</html>
 
